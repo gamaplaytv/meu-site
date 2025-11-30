@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título Otimizado (Sem termos de risco) -->
+    <title>GAMA Play | Soluções em Streaming 4K</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- VARIÁVEIS E RESET --- */
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --primary: #7b2cbf;
+            --secondary: #25d366;
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+            --gradient: linear-gradient(135deg, #7b2cbf 0%, #3c096c 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--bg-dark); color: var(--text-light); overflow-x: hidden; scroll-behavior: smooth; }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: rgba(15, 15, 15, 0.98);
+            padding: 15px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px; /* Altura fixa para calculos */
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; z-index: 1001;}
+        .logo span { color: #fff; }
+
+        /* Menu Desktop */
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { color: var(--text-light); font-weight: 500; font-size: 0.9rem; }
+        .nav-menu a:hover { color: var(--primary); }
+
+        /* Botão Header Desktop */
+        .header-cta {
+            display: flex;
+        }
+
+        .btn-cta {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .btn-cta:hover { transform: scale(1.05); background-color: #1ebe57; }
+
+        /* Ícone Menu Mobile (Hambúrguer) */
+        .mobile-menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* --- HERO SECTION (BANNER) --- */
+        .hero {
+            /* Ajuste de altura para mobile e desktop */
+            min-height: 100vh;
+            background: linear-gradient(to bottom, rgba(15,15,15,0.6), var(--bg-dark)), url('https://images.unsplash.com/photo-1574375927938-d5a98e8efe85?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px 20px; /* Padding Top maior para compensar header fixo */
+        }
+
+        .hero h1 { 
+            font-size: 3.5rem; 
+            line-height: 1.2; 
+            margin-bottom: 20px; 
+            max-width: 900px; 
+            font-weight: 700;
+        }
+        .hero span { color: var(--secondary); }
+        .hero p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 40px; max-width: 700px; }
+
+        .hero-buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .btn-outline:hover { background: #fff; color: #000; }
+
+        /* --- GENERIC SECTIONS --- */
+        section { padding: 80px 10%; }
+
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 10px; color: #fff; }
+        .section-title p { color: var(--text-gray); font-size: 1rem; }
+
+        /* --- CARDS FEATURES --- */
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-card h3 { margin-bottom: 10px; font-size: 1.2rem; color: #fff; }
+        .feature-card p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.5; }
+
+        /* --- CATEGORIAS (SAFE MODE) --- */
+        .content-preview { background: #141414; }
+        .content-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category-pill {
+            background: #222;
+            padding: 15px 30px;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+        .category-pill:hover { border-color: var(--secondary); color: var(--secondary); }
+        .category-pill i { color: var(--primary); }
+
+        /* --- PRICING --- */
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            border: 1px solid #333;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(123, 44, 191, 0.2);
+            z-index: 10;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .price { font-size: 2.5rem; font-weight: 800; margin: 20px 0; color: #fff; }
+        .price span { font-size: 0.9rem; font-weight: 400; color: var(--text-gray); }
+        
+        .benefits-list { margin-bottom: 30px; text-align: left; flex-grow: 1; }
+        .benefits-list li { margin-bottom: 12px; color: var(--text-gray); font-size: 0.9rem; display: flex; align-items: flex-start; }
+        .benefits-list li i { color: var(--secondary); margin-right: 10px; margin-top: 4px; min-width: 15px;}
+
+        .btn-price {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #333;
+            color: #fff;
+            border-radius: 10px;
+            font-weight: 600;
+            margin-top: auto;
+        }
+        .popular .btn-price { background: var(--gradient); }
+        .btn-price:hover { filter: brightness(1.2); }
+
+        /* --- DEVICES --- */
+        .devices { text-align: center; background: #111; border-top: 1px solid #222; }
+        .device-icons { display: flex; justify-content: center; gap: 40px; margin-top: 30px; flex-wrap: wrap; }
+        .device-item { color: var(--text-gray); font-size: 0.9rem; }
+        .device-item i { font-size: 2rem; margin-bottom: 10px; display: block; color: #fff; }
+
+        /* --- FOOTER --- */
+        footer { background: #000; padding: 60px 10% 30px; border-top: 1px solid #333; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.6; }
+        .footer-col a { color: var(--text-gray); display: block; margin-bottom: 10px; font-size: 0.9rem; }
+        .footer-col a:hover { color: var(--primary); }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #222; font-size: 0.85rem; color: #555; }
+
+        /* --- RESPONSIVIDADE (MOBILE & TABLET) --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            section { padding: 60px 5%; }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; justify-content: space-between; }
+            
+            /* Menu Mobile Oculto por padrão */
+            .nav-menu {
+                position: fixed;
+                top: 80px; /* Abaixo do header */
+                left: 0;
+                width: 100%;
+                background-color: #1a1a1a;
+                flex-direction: column;
+                padding: 30px;
+                border-bottom: 2px solid var(--primary);
+                transform: translateY(-150%); /* Escondido pra cima */
+                transition: transform 0.4s ease;
+                z-index: 999;
+            }
+
+            /* Classe para mostrar o menu via JS */
+            .nav-menu.active {
+                transform: translateY(0);
+            }
+
+            .header-cta { display: none; } /* Esconde botão CTA do header no mobile p/ limpar visual */
+            .mobile-menu-icon { display: block; } /* Mostra ícone hambúrguer */
+
+            .hero { padding-top: 100px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            
+            .price-card.popular { transform: scale(1); margin: 10px 0; }
+            
+            .device-icons { gap: 20px; }
+            .device-item { flex: 1 1 40%; } /* 2 por linha no mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão Flutuante WhatsApp (Seguro) -->
+    <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+gostaria+de+conhecer+o+sistema+de+streaming&type=phone_number&app_absent=0" target="_blank" style="position:fixed; bottom:20px; right:20px; background:#25d366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,0.3); z-index:2000;">
+        <i class="fab fa-whatsapp" style="font-size:35px; color:#fff;"></i>
+    </a>
+
+    <header>
+        <div class="logo">GAMA<span>PLAY</span></div>
+        
+        <!-- Ícone Menu Mobile -->
+        <div class="mobile-menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" onclick="toggleMenu()">Início</a></li>
+                <li><a href="#plans" onclick="toggleMenu()">Planos</a></li>
+                <li><a href="#benefits" onclick="toggleMenu()">Vantagens</a></li>
+                <li><a href="#devices" onclick="toggleMenu()">Dispositivos</a></li>
+            </ul>
+        </nav>
+
+        <div class="header-cta">
+            <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+gostaria+de+conhecer+o+sistema+de+streaming&type=phone_number&app_absent=0" target="_blank" class="btn-cta"><i class="fab fa-whatsapp"></i> Entrar em Contato</a>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <!-- Texto alterado para evitar bloqueios (Sem "TV a Cabo" ou "Canais") -->
+        <h1>A Evolução do seu <br><span>Entretenimento Digital</span></h1>
+        <p>Tenha acesso ao melhor conteúdo em 4K, Filmes e Séries direto na sua Smart TV ou Celular. Tecnologia Nuvem sem travamentos.</p>
+        <div class="hero-buttons">
+            <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+quero+testar+o+sistema+agora&type=phone_number&app_absent=0" target="_blank" class="btn-cta">SOLICITAR ACESSO</a>
+            <a href="#plans" class="btn-outline">Ver Planos</a>
+        </div>
+    </section>
+
+    <section class="features" id="benefits">
+        <div class="section-title">
+            <h2>Por que escolher a GAMA?</h2>
+            <p>Infraestrutura robusta e estabilidade garantida.</p>
+        </div>
+        <div class="grid-features">
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <!-- Termos genéricos -->
+                <h3>Conteúdo Global</h3>
+                <p>Milhares de opções nacionais e internacionais organizadas por categorias.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-play-circle"></i>
+                <h3>Ondemand Premium</h3>
+                <p>Catálogo atualizado semanalmente com os últimos lançamentos do cinema.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Alta Performance</h3>
+                <p>Servidores CDN que garantem a melhor rota para sua internet.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Multi-Dispositivo</h3>
+                <p>Assista na TV da sala, no celular no ônibus ou no computador.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-preview">
+        <div class="section-title">
+            <h2>O que você vai encontrar?</h2>
+            <p>Variedade para toda a família</p>
+        </div>
+        <!-- Categorias Genéricas (Sem logos de marcas para evitar Copyright) -->
+        <div class="content-grid">
+            <div class="category-pill"><i class="fas fa-film"></i> Cinema & Séries</div>
+            <div class="category-pill"><i class="fas fa-futbol"></i> Esportes Ao Vivo</div>
+            <div class="category-pill"><i class="fas fa-child"></i> Conteúdo Infantil</div>
+            <div class="category-pill"><i class="fas fa-newspaper"></i> Notícias 24h</div>
+            <div class="category-pill"><i class="fas fa-video"></i> Documentários</div>
+            <div class="category-pill"><i class="fas fa-music"></i> Shows & Música</div>
+        </div>
+    </section>
+
+    <section class="pricing" id="plans">
+        <div class="section-title">
+            <h2>Planos Flexíveis</h2>
+            <p>Sem fidelidade. Cancele quando quiser.</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Mensal -->
+            <div class="price-card">
+                <h3>Acesso Mensal</h3>
+                <div class="price">R$ 29<span>/mês</span></div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> Biblioteca Completa</li>
+                    <li><i class="fas fa-check"></i> Qualidade SD/HD/4K</li>
+                    <li><i class="fas fa-check"></i> Guia de Programação</li>
+                    <li><i class="fas fa-check"></i> 1 Tela Conectada</li>
+                    <li><i class="fas fa-check"></i> Suporte WhatsApp</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+quero+contratar+o+Acesso+Mensal&type=phone_number&app_absent=0" target="_blank" class="btn-price">ASSINAR</a>
+            </div>
+
+            <!-- Trimestral -->
+            <div class="price-card popular">
+                <div class="badge">MAIS VENDIDO</div>
+                <h3>Acesso Trimestral</h3>
+                <div class="price">R$ 79<span>/3 meses</span></div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> <strong>Economia Garantida</strong></li>
+                    <li><i class="fas fa-check"></i> Biblioteca Completa</li>
+                    <li><i class="fas fa-check"></i> Qualidade SD/HD/4K</li>
+                    <li><i class="fas fa-check"></i> App Otimizado</li>
+                    <li><i class="fas fa-check"></i> 2 Telas Simultâneas</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+quero+contratar+o+Acesso+Trimestral&type=phone_number&app_absent=0" target="_blank" class="btn-price">ASSINAR</a>
+            </div>
+
+            <!-- Anual -->
+            <div class="price-card">
+                <h3>Acesso Anual</h3>
+                <div class="price">R$ 199<span>/ano</span></div>
+                <ul class="benefits-list">
+                    <li><i class="fas fa-check"></i> Melhor Custo-Benefício</li>
+                    <li><i class="fas fa-check"></i> Acesso VIP Ilimitado</li>
+                    <li><i class="fas fa-check"></i> Conteúdo Adulto (Opcional)</li>
+                    <li><i class="fas fa-check"></i> 3 Telas Simultâneas</li>
+                    <li><i class="fas fa-check"></i> Suporte Prioritário</li>
+                </ul>
+                <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+quero+contratar+o+Acesso+Anual&type=phone_number&app_absent=0" target="_blank" class="btn-price">ASSINAR</a>
+            </div>
+        </div>
+
+        <!-- Aviso de Segurança -->
+        <div style="text-align: center; margin-top: 50px; color: var(--text-gray); font-size: 0.85rem; background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px;">
+            <p><i class="fas fa-lock" style="color: var(--secondary); margin-right: 5px;"></i> <strong>Ambiente Seguro:</strong> Pagamentos processados externamente via Mercado Pago / Asaas.</p>
+        </div>
+    </section>
+
+    <section class="devices" id="devices">
+        <h2>Compatibilidade Total</h2>
+        <div class="device-icons">
+            <div class="device-item"><i class="fab fa-android"></i>Android</div>
+            <div class="device-item"><i class="fab fa-apple"></i>Apple iOS</div>
+            <div class="device-item"><i class="fas fa-tv"></i>Smart TV</div>
+            <div class="device-item"><i class="fas fa-hdd"></i>TV Box / Stick</div>
+            <div class="device-item"><i class="fas fa-laptop"></i>PC / Web</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>GAMA PLAY</h4>
+                <p>Soluções digitais para o seu entretenimento. Tecnologia de ponta e suporte humanizado.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <a href="termos.html">Termos de Uso</a>
+                <a href="privacidade.html">Política de Privacidade</a>
+                <a href="tutoriais.html">Central de Ajuda</a>
+                <a href="velocidade.html">Teste sua Conexão</a>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento</h4>
+                <p><i class="fab fa-whatsapp"></i> +55 62 9152-8310</p>
+                <p><i class="far fa-envelope"></i> contato@gamaplay.com.br</p>
+                <p style="font-size: 0.8rem; color: #777; margin-top: 10px;">Seg a Sáb - 08h às 22h</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2021 - 2025 GAMA PLAY. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script Simples para Menu Mobile -->
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

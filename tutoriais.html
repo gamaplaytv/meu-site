@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutoriais de Instalação | GAMAPLAY</title>
+    
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO PADRÃO GAMAPLAY --- */
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --primary: #7b2cbf;
+            --secondary: #25d366;
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- CABEÇALHO COMPLETO --- */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .logo span { color: #fff; }
+
+        /* Menu Desktop */
+        .nav-menu { display: flex; gap: 25px; align-items: center; }
+        .nav-menu a { color: var(--text-light); font-weight: 500; font-size: 0.9rem; }
+        .nav-menu a:hover { color: var(--primary); }
+        .nav-menu .active { color: var(--primary); font-weight: 700; }
+
+        .btn-cta-header {
+            background-color: var(--secondary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-cta-header:hover { background-color: #1ebe57; transform: scale(1.05); }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        .tutorials-container {
+            max-width: 1100px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        .intro-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .intro-header h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
+        .intro-header p { color: var(--text-gray); font-size: 1.1rem; }
+
+        /* --- SELETOR DE DISPOSITIVO --- */
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tutorial-card {
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .tutorial-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .card-header {
+            background: #222;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid #333;
+        }
+        .card-header i { font-size: 2rem; color: var(--secondary); }
+        .card-header h3 { margin: 0; font-size: 1.3rem; }
+
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        
+        .app-badge {
+            background: rgba(123, 44, 191, 0.2);
+            color: var(--primary);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+
+        .steps-list { list-style: none; counter-reset: step-counter; margin-bottom: 20px; }
+        .steps-list li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+        .steps-list li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .steps-list strong { color: #fff; font-weight: 600; }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: auto; /* Empurra botão pro final */
+            font-weight: 600;
+            border: 1px solid #444;
+        }
+        .btn-download:hover { background: var(--secondary); border-color: var(--secondary); color: #000; }
+
+        /* --- FAQ / SOLUÇÃO DE PROBLEMAS --- */
+        .troubleshoot-section {
+            margin-top: 80px;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        .troubleshoot-section h2 { margin-bottom: 30px; text-align: center; color: var(--primary); }
+        
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h4 { color: #fff; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .faq-item p { color: var(--text-gray); font-size: 0.95rem; margin-left: 28px; }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background: #000;
+            padding: 30px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+        }
+
+        /* --- INFO BOX --- */
+        .info-box {
+            background: rgba(37, 211, 102, 0.1); /* Fundo verde suave */
+            border: 1px solid var(--secondary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } /* Menu simples para mobile */
+            .intro-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER COM NAVEGAÇÃO -->
+    <header>
+        <div class="logo">GAMA<span>PLAY</span></div>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#plans">Planos</a></li>
+                <li><a href="tutoriais.html" class="active">Instalação</a></li>
+                <li><a href="velocidade.html">Teste Velocidade</a></li>
+            </ul>
+        </nav>
+        <a href="index.html#rodape" class="btn-cta-header"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </header>
+
+    <div class="tutorials-container">
+        <div class="intro-header">
+            <h1>Central de Instalação</h1>
+            <p>Selecione seu dispositivo abaixo para ver o guia passo a passo.</p>
+            
+            <div class="info-box">
+                <i class="fas fa-key"></i> <strong>Dados de Acesso:</strong> Para logar, você precisará do <strong>Usuário, Senha e URL</strong>. Se ainda não recebeu, chame no WhatsApp!
+            </div>
+        </div>
+
+        <div class="device-grid">
+            
+            <!-- ANDROID (CELULAR) -->
+            <div class="tutorial-card">
+                <div class="card-header">
+                    <i class="fab fa-android"></i>
+                    <h3>Celular Android</h3>
+                </div>
+                <div class="card-body">
+                    <span class="app-badge">Recomendado: XCIPTV</span>
+                    <ol class="steps-list">
+                        <li>Abra a <strong>Play Store</strong>.</li>
+                        <li>Pesquise por <strong>"XCIPTV PLAYER"</strong>.</li>
+                        <li>Instale e abra o aplicativo.</li>
+                        <li>Insira a <strong>URL</strong> (http://...), seu <strong>Usuário</strong> e <strong>Senha</strong>.</li>
+                        <li>Clique em <strong>Entrar</strong>.</li>
+                    </ol>
+                    <a href="https://play.google.com/store/apps/details?id=com.nathnetwork.xciptv" target="_blank" class="btn-download"><i class="fab fa-google-play"></i> Baixar XCIPTV</a>
+                </div>
+            </div>
+
+            <!-- TV BOX / FIRE STICK -->
+            <div class="tutorial-card">
+                <div class="card-header">
+                    <i class="fas fa-box-open"></i>
+                    <h3>TV Box / Fire Stick</h3>
+                </div>
+                <div class="card-body">
+                    <span class="app-badge">Via Downloader</span>
+                    <ol class="steps-list">
+                        <li>Instale o app <strong>"Downloader"</strong> na loja da sua TV Box/Fire Stick.</li>
+                        <li>Abra o Downloader e digite o código: <strong>78522</strong> (exemplo) ou o link direto do APK.</li>
+                        <li>Aguarde o download e clique em <strong>Instalar</strong>.</li>
+                        <li>Abra o app instalado e coloque seus dados.</li>
+                    </ol>
+                    <!-- Botão genérico pois não há link direto universal, mas instrui o uso do código -->
+                    <button class="btn-download" style="cursor: default; opacity: 0.8;"><i class="fas fa-download"></i> Use o App Downloader</button>
+                </div>
+            </div>
+
+            <!-- IPHONE (iOS) -->
+            <div class="tutorial-card">
+                <div class="card-header">
+                    <i class="fab fa-apple"></i>
+                    <h3>iPhone / iPad</h3>
+                </div>
+                <div class="card-body">
+                    <span class="app-badge">Smarters Player Lite</span>
+                    <ol class="steps-list">
+                        <li>Acesse a <strong>App Store</strong>.</li>
+                        <li>Baixe o app <strong>"Smarters Player Lite"</strong>.</li>
+                        <li>Abra e aceite os termos.</li>
+                        <li>Escolha <strong>"Login com Xtream Codes API"</strong>.</li>
+                        <li>Preencha: Nome (Qualquer), Usuário, Senha e URL.</li>
+                    </ol>
+                    <a href="https://apps.apple.com/br/app/smarters-player-lite/id1628300079" target="_blank" class="btn-download"><i class="fab fa-app-store"></i> Baixar na App Store</a>
+                </div>
+            </div>
+
+            <!-- COMPUTADOR (WINDOWS) -->
+            <div class="tutorial-card">
+                <div class="card-header">
+                    <i class="fab fa-windows"></i>
+                    <h3>Computador (PC)</h3>
+                </div>
+                <div class="card-body">
+                    <span class="app-badge">IPTV Smarters Pro</span>
+                    <ol class="steps-list">
+                        <li>Baixe o programa no botão abaixo.</li>
+                        <li>Instale o arquivo <strong>.exe</strong>.</li>
+                        <li>Abra o Smarters Pro.</li>
+                        <li>Selecione <strong>"Add New User"</strong>.</li>
+                        <li>Insira seus dados de acesso e Login.</li>
+                    </ol>
+                    <a href="https://www.iptvsmarters.com/IPTVSmartersPro-Setup-1.1.1.exe" class="btn-download"><i class="fas fa-download"></i> Baixar para Windows</a>
+                </div>
+            </div>
+
+            <!-- SMART TV (SAMSUNG/LG) -->
+            <div class="tutorial-card">
+                <div class="card-header">
+                    <i class="fas fa-tv"></i>
+                    <h3>Smart TV (LG/Samsung)</h3>
+                </div>
+                <div class="card-body">
+                    <span class="app-badge">IBO Player / Bob Player</span>
+                    <ol class="steps-list">
+                        <li>Vá na loja de apps da TV.</li>
+                        <li>Busque por <strong>IBO Player</strong>, <strong>Bob Player</strong> ou <strong>SmartOne</strong>.</li>
+                        <li>Abra o app. Aparecerá um <strong>MAC Address</strong> e <strong>Key</strong>.</li>
+                        <li>Envie uma <strong>foto dessa tela</strong> para nós no WhatsApp.</li>
+                        <li>Ativamos remotamente para você.</li>
+                    </ol>
+                    <a href="https://api.whatsapp.com/send/?phone=556291528310&text=Ola+vim+pelo+site+e+quero+teste+gratis+e+quero+o+plano+anual&type=phone_number&app_absent=0" target="_blank" class="btn-download" style="background: var(--secondary); border:none; color:#fff;"><i class="fab fa-whatsapp"></i> Enviar Foto</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SOLUÇÃO DE PROBLEMAS -->
+        <div class="troubleshoot-section">
+            <h2><i class="fas fa-tools"></i> Solução de Problemas Comuns</h2>
+            
+            <div class="faq-item">
+                <h4><i class="fas fa-exclamation-triangle"></i> "Erro ao Conectar" ou "Invalid Details"</h4>
+                <p>Verifique se digitou a URL exatamente como enviamos (respeitando http:// e pontos). Verifique também se não há espaços em branco antes ou depois da senha.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-spinner"></i> Canais travando muito</h4>
+                <p>Reinicie seu modem de internet (tire da tomada por 1 min). Se estiver no Wi-Fi, tente aproximar o dispositivo do roteador ou usar o cabo de rede. Verifique se sua internet está acima de 15 Mega no nosso <a href="velocidade.html" style="color:var(--secondary)">Teste de Velocidade</a>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4><i class="fas fa-list-ul"></i> Lista Vazia (0 Canais)</h4>
+                <p>No app Smarters/XCIPTV, clique no botão "Atualizar Lista" ou "Refresh". Se persistir, pode ser que sua conta tenha expirado ou precise de renovação.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2021 GAMAPLAY. Todos os direitos reservados.</p>
+        <p style="margin-top:10px; font-size:0.8rem;">Os aplicativos citados pertencem a terceiros. Apenas fornecemos instruções de configuração.</p>
+    </footer>
+
+</body>
+</html>

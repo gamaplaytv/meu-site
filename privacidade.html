@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | GAMAPLAY</title>
+    
+    <!-- Fontes Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO PADRÃO GAMAPLAY --- */
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --primary: #7b2cbf; /* Roxo da marca */
+            --secondary: #25d366; /* Verde destaque */
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .logo span { color: #fff; }
+
+        .btn-back {
+            border: 1px solid var(--text-gray);
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        .btn-back:hover { 
+            border-color: var(--secondary); 
+            color: var(--secondary); 
+            background: rgba(37, 211, 102, 0.1);
+        }
+
+        /* --- CONTEÚDO --- */
+        .privacy-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+        }
+
+        .privacy-card {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i { color: var(--secondary); font-size: 1rem; }
+
+        p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 0.95rem;
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background: #000;
+            padding: 30px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .privacy-card { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GAMA<span>PLAY</span></div>
+        <a href="index.html#rodape" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </header>
+
+    <div class="privacy-container">
+        <div class="privacy-card">
+            <h1>Política de Privacidade</h1>
+            <p class="intro-text">Na GAMAPLAY, a privacidade dos nossos visitantes e clientes é extremamente importante. Esta política descreve como coletamos, usamos e protegemos suas informações.</p>
+
+            <h3><i class="fas fa-database"></i> 1. Coleta de Dados</h3>
+            <p>Coletamos apenas as informações essenciais para o fornecimento do serviço e comunicação com o cliente. Isso inclui:</p>
+            <p><strong>Dados de Contato:</strong> Nome e número de WhatsApp fornecidos voluntariamente pelo usuário ao solicitar um teste ou suporte.</p>
+            <p><strong>Dados de Conexão:</strong> Para segurança do servidor e prevenção de compartilhamento indevido de contas, nosso sistema registra automaticamente o endereço IP do dispositivo conectado ao serviço de streaming.</p>
+
+            <h3><i class="fas fa-paper-plane"></i> 2. Uso das Informações</h3>
+            <p>As informações coletadas são utilizadas exclusivamente para:</p>
+            <ul>
+                <li>Liberar o acesso aos testes e assinaturas contratadas.</li>
+                <li>Enviar lembretes de renovação de assinatura (para evitar corte do sinal).</li>
+                <li>Prestar suporte técnico e responder dúvidas.</li>
+                <li>Monitorar a estabilidade do sistema e prevenir fraudes.</li>
+            </ul>
+            <p><strong>Importante:</strong> A GAMAPLAY não vende, aluga ou compartilha seus dados pessoais com terceiros para fins de marketing.</p>
+
+            <h3><i class="fas fa-cookie-bite"></i> 3. Cookies</h3>
+            <p>Nosso site pode utilizar "cookies" (pequenos arquivos de texto) para melhorar a experiência do usuário, como lembrar preferências de navegação. Você pode desativar os cookies nas configurações do seu navegador a qualquer momento, embora isso possa limitar algumas funcionalidades do site.</p>
+
+            <h3><i class="fas fa-lock"></i> 4. Segurança</h3>
+            <p>Adotamos medidas de segurança adequadas para proteger contra acesso não autorizado, alteração, divulgação ou destruição dos seus dados pessoais. O tráfego do nosso site é protegido, e os dados de pagamento são processados por plataformas externas seguras; nós não armazenamos dados de cartão de crédito.</p>
+
+            <h3><i class="fas fa-link"></i> 5. Links Externos</h3>
+            <p>Nosso site pode conter links para outros sites (como WhatsApp Web ou plataformas de pagamento). Não nos responsabilizamos pelas políticas de privacidade ou conteúdo desses sites de terceiros.</p>
+
+            <h3><i class="fas fa-pen"></i> 6. Alterações nesta Política</h3>
+            <p>A GAMAPLAY reserva-se o direito de atualizar esta Política de Privacidade a qualquer momento. Recomendamos que o usuário revise esta página periodicamente para se manter informado sobre como estamos protegendo suas informações.</p>
+
+            <h3><i class="far fa-envelope"></i> 7. Contato</h3>
+            <p>Se você tiver dúvidas sobre esta Política de Privacidade ou sobre o tratamento dos seus dados, entre em contato conosco através do nosso canal de atendimento no WhatsApp.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GAMAPLAY. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>

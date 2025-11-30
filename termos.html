@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso | GAMAPLAY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- ESTILO PADRÃO GAMAPLAY --- */
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-card: #1a1a1a;
+            --primary: #7b2cbf; /* Roxo da marca */
+            --secondary: #25d366; /* Verde destaque */
+            --text-light: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* --- CABEÇALHO --- */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: var(--primary); 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+        }
+        .logo span { color: #fff; }
+
+        .btn-back {
+            border: 1px solid var(--text-gray);
+            color: var(--text-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+        .btn-back:hover { 
+            border-color: var(--secondary); 
+            color: var(--secondary); 
+            background: rgba(37, 211, 102, 0.1);
+        }
+
+        /* --- CONTEÚDO LEGAL --- */
+        .legal-container {
+            max-width: 900px;
+            margin: 120px auto 60px; /* Espaço para o header fixo */
+            padding: 0 20px;
+        }
+
+        .legal-card {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .last-update {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 i { color: var(--secondary); font-size: 1rem; }
+
+        p {
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 0.95rem;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-gray);
+        }
+        ul li { margin-bottom: 8px; }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background: #000;
+            padding: 30px;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .legal-card { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GAMA<span>PLAY</span></div>
+        <a href="index.html#rodape" class="btn-back"><i class="fas fa-arrow-left"></i> Voltar</a>
+    </header>
+
+    <div class="legal-container">
+        <div class="legal-card">
+            <h1>Termos de Uso e Condições</h1>
+            <span class="last-update">Última atualização: Novembro de 2025</span>
+
+            <p>Bem-vindo ao <strong>GAMAPLAY</strong>. Ao acessar nosso site e contratar nossos serviços de streaming, você concorda com os termos descritos abaixo. Por favor, leia atentamente antes de solicitar seu teste ou finalizar sua assinatura.</p>
+
+            <h3><i class="fas fa-check-circle"></i> 1. Aceitação dos Termos</h3>
+            <p>Ao utilizar os serviços fornecidos pelo GAMAPLAY, o usuário confirma que leu, compreendeu e aceita integralmente os presentes Termos de Uso. Caso não concorde com qualquer parte destes termos, o usuário não deve utilizar nossos serviços.</p>
+
+            <h3><i class="fas fa-wifi"></i> 2. Requisitos Técnicos</h3>
+            <p>Para garantir a qualidade da transmissão e evitar travamentos, o usuário é responsável por:</p>
+            <ul>
+                <li>Possuir uma conexão de internet estável de no mínimo <strong>15 Mega</strong> para conteúdos SD/HD e <strong>50 Mega</strong> para conteúdos Full HD e 4K.</li>
+                <li>Utilizar dispositivos compatíveis (Smart TV, TV Box, Fire Stick, Celular ou Computador).</li>
+                <li>Manter seus aplicativos de reprodução sempre atualizados.</li>
+            </ul>
+            <p>O GAMAPLAY não se responsabiliza por instabilidades causadas por conexão Wi-Fi fraca (sugerimos uso via cabo de rede) ou bloqueios de rota (Traffic Shaping) realizados pelo provedor de internet do cliente.</p>
+
+            <h3><i class="fas fa-user-shield"></i> 3. Teste Grátis e Assinatura</h3>
+            <p>O <strong>Teste Grátis</strong> é uma cortesia oferecida uma única vez por usuário para validação da qualidade do serviço. Após o período de teste, o sinal é interrompido automaticamente.</p>
+            <p>A liberação do acesso definitivo (Premium) ocorre imediatamente após a confirmação do pagamento. Trabalhamos no modelo pré-pago: você paga para usar pelo período contratado (mensal, trimestral, etc), sem fidelidade e sem multas de cancelamento.</p>
+
+            <h3><i class="fas fa-ban"></i> 4. Proibições e Uso Indevido</h3>
+            <p>Para segurança de todos os usuários do servidor, é estritamente proibido:</p>
+            <ul>
+                <li>Compartilhar sua senha ou lista M3U com terceiros (salvo em planos multi-telas contratados especificamente para isso).</li>
+                <li>Retransmissão pública do sinal em estabelecimentos comerciais sem autorização prévia.</li>
+                <li>Tentativas de clonagem ou ataque ao servidor.</li>
+            </ul>
+            <p>Nosso sistema possui detecção automática de conexões simultâneas indevidas. O descumprimento desta regra acarretará no <strong>banimento imediato</strong> da conta, sem direito a reembolso.</p>
+
+            <h3><i class="fas fa-money-bill-wave"></i> 5. Política de Reembolso</h3>
+            <p>Como o GAMAPLAY oferece a modalidade de <strong>Teste Grátis</strong> para que o cliente ateste a qualidade antes da compra, não realizamos estorno de valores após a ativação do plano contratado, visto que se trata de um produto digital de consumo imediato e infalsificável.</p>
+
+            <h3><i class="fas fa-sync-alt"></i> 6. Alterações na Grade</h3>
+            <p>A grade de canais e o catálogo Ondemand (filmes e séries) são dinâmicos. O GAMAPLAY se reserva o direito de adicionar, remover ou alterar conteúdos sem aviso prévio, visando sempre a estabilidade do servidor.</p>
+
+            <h3><i class="fas fa-headset"></i> 7. Suporte Técnico</h3>
+            <p>Nosso suporte é exclusivo via WhatsApp. O atendimento limita-se a questões relacionadas ao servidor e envio de dados de acesso. Não prestamos suporte para configuração de roteadores, formatação de TV Box ou problemas externos ao nosso sistema.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 GAMAPLAY. Todos os direitos reservados.</p>
+        <p style="margin-top:10px; font-size:0.8rem;">Serviço de intermediação de acesso. Não hospedamos arquivos físicos.</p>
+    </footer>
+
+</body>
+</html>
